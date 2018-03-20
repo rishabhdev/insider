@@ -11,7 +11,7 @@ angular.module('main').directive('imagecropper', function ($rootScope) {
         uploadCallback:"="
       },
       templateUrl: '/main/directives/image-cropper.html',
-      link($scope, element, attrs, fn) {
+      link : function($scope, element, attrs, fn) {
           
           
           var croppieLoaded = false;
