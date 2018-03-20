@@ -1,0 +1,59 @@
+<div class="col-md-12" ng-controller="MainCtrl">
+
+    <div class="row"></div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-xs-12"  ng-hide="bucket.usernameEntered">
+            <label>Please enter your name:</label>
+            <input ng-model="bucket.username">
+            <button ng-click="submitUsername()">Ok</button>
+        </div>
+    </div>
+    <div ng-show="bucket.usernameEntered && !images.length">
+        <div class="row">
+            <h1 class="col-xs-12">
+                Welcome {{bucket.username}} !
+            </h1>
+            <h3 class="col-xs-12">
+                   Upload a 1024X1024 image to crop
+             </h3>
+            <h1 class="col-xs-12"><button class="btn btn-primary" ng-click="reload()">Login as different user</button></h1>
+        </div>
+    <imageCropper crop-width="'755'" crop-height="'450'" image="bucket.image" show-selector="bucket.showSelector" text="Horizontal" upload-callback="uploadImages"></imageCropper>
+    <hr>
+    <imageCropper crop-width="'365'" crop-height="'450'" image="bucket.image" text="Vertical" upload-callback="uploadImages"></imageCropper>
+
+     <hr>
+     <imageCropper crop-width="'365'" crop-height="'212'" image="bucket.image" text="Horizontal Small" upload-callback="uploadImages"></imageCropper>
+
+     <hr>
+     <imageCropper crop-width="'380'" crop-height="'380'" image="bucket.image" text="Gallery" upload-callback="uploadImages"></imageCropper>
+
+     </div>
+    
+
+
+     <div ng-show="images.length">
+         <div class="row">
+            <h1 class="col-xs-12">
+                    Welcome {{bucket.username}} !
+                </h1>
+                </div>
+                <div class="row">
+         <h3 class="col-xs-12">Displaying your cropped images</h3>
+         </div>
+         <div class="row">
+            <h1 class="col-xs-12"><button class="btn btn-primary" ng-click="reload()">Login as different user</button></h1>
+
+            </div>
+            <br>
+            <br>
+
+     <div ng-repeat="image in images" >
+         <div>{{image.width}}X{{image.height}} <img src={{image.url}}></div>
+         <hr>
+    </div>
+    </div>
+</div>

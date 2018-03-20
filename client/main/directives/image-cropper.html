@@ -1,0 +1,36 @@
+<div class="row">
+        <h3 class="col-xs-12">
+                {{text}} : {{cropWidth}} x {{cropHeight}}
+        </h3>
+        <div class="col-xs-12" ng-hide="bucket.uploaded">
+                <form class="form-horizontal uploadForm" >
+                    <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <a  class = "btn btn-primary btn-lg"  ng-show="showSelector" aria-expanded = "true" ng-click="triggerUploadClick($event)">
+                                    Select Logo
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                </a>
+                                <button  class = "btn btn-primary"    aria-expanded = "true" ng-click="onCropClick()" >
+                                   Crop {{bucket.imageHidden?'Again':''}} <i class="fa fa-cut" aria-hidden="true"></i>
+                                </button>
+                                <button  class = "btn btn-primary" ng-disabled="!bucket.imageData" aria-expanded = "true" ng-click="uploadCallback(bucket.imageData);bucket.uploaded = true;" >
+                                        Upload <i class="fa fa-save" aria-hidden="true"></i>
+                                     </button>
+                            </div>
+                        </div>
+                        <form  enctype="multipart/form-data" method="post" class="col-xs-12">
+                            <input class="uploader"  name="file" type="file"  accept="image/jpeg, image/png, image/gif" style="visibility: hidden"><br>
+                        </form>
+                </form>
+         </div>
+         <div class="col-xs-12" ng-show="bucket.imageHidden">
+                <div class="output"><img /></div>
+             </div>
+        <div class="col-xs-12" ng-show="!bucket.imageHidden">
+            <div style="position:relative;width:1024px;height:1024px;border:1px solid gray" >
+                <div ng-if="bucket.imageSizeError">Please upload an image of 1024X1024 pixel</div>
+                    <div class="image"></div>
+            </div>
+        </div>
+        
+    </div>

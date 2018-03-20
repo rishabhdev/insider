@@ -1,0 +1,16 @@
+{
+  "generator-express": {
+    "promptValues": {
+      "type": "MVC",
+      "viewEngine": "Jade",
+      "cssPreprocessor": "None",
+      "database": "MongoDB",
+      "buildTool": "Gulp"
+    }
+  },
+  "generator-rest": {
+    "srcDir": "src",
+    "apiDir": "api",
+    "authMethods": []
+  }
+}
