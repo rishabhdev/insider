@@ -12,8 +12,7 @@ angular.module('main').directive('imagecropper', function ($rootScope) {
       },
       templateUrl: '/main/directives/image-cropper.html',
       link : function($scope, element, attrs, fn) {
-          
-          
+
           var croppieLoaded = false;
           $scope.bucket = {};
           $rootScope.$on('image',function(event,data){
